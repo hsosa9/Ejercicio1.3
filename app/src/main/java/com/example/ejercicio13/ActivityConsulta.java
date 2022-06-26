@@ -2,6 +2,7 @@ package com.example.ejercicio13;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -60,8 +61,8 @@ public class ActivityConsulta extends AppCompatActivity {
 
             String [] fields = {Transacciones.nombres,
                     Transacciones.apellidos,
-                    Transacciones.correo,
                     Transacciones.edad,
+                    Transacciones.correo,
                     Transacciones.direccion};
 
             String WhereCondition = Transacciones.id + "=?";
@@ -82,7 +83,10 @@ public class ActivityConsulta extends AppCompatActivity {
 
                 Toast.makeText(this, "Consultado con exito", Toast.LENGTH_LONG).show();
             }
-            Toast.makeText(this, "No Hay Datos" + "", Toast.LENGTH_LONG).show();
+            else{
+                Toast.makeText(this, "No Hay Datos" + "", Toast.LENGTH_LONG).show();
+            }
+
 
 
         }
@@ -116,7 +120,7 @@ public class ActivityConsulta extends AppCompatActivity {
         txt_sedad.setText("");
         txt_scorreo.setText("");
         txt_sdireccion.setText("");
-        
+
     }
 
     public void Regresar (View view){
@@ -125,4 +129,33 @@ public class ActivityConsulta extends AppCompatActivity {
         startActivity(x);
 
     }
+
+    public void actu (){
+
+        conexion = new SQLliteConexion(this, Transacciones.NameDataBase, null, 1);
+        SQLiteDatabase db = conexion.getWritableDatabase();
+        String [] params = {txt_sid.getText().toString()};
+
+        ContentValues valores = new ContentValues();
+        valores.put(Transacciones.nombres, txt_snombre.getText().toString());
+        valores.put(Transacciones.apellidos, txt_sapellido.getText().toString());
+        valores.put(Transacciones.edad, txt_sedad.getText().toString());
+        valores.put(Transacciones.correo, txt_scorreo.getText().toString());
+        valores.put(Transacciones.direccion, txt_sdireccion.getText().toString());
+        db.update(Transacciones.tablaPersona, valores, Transacciones.id + "=?", params);
+        Toast.makeText(this, "Dato Actualizado" , Toast.LENGTH_LONG).show();
+    }
+
+    public void Actualizar(View view){
+        actu ();
+
+        txt_sid.setText("");
+        txt_snombre.setText("");
+        txt_sapellido.setText("");
+        txt_sedad.setText("");
+        txt_scorreo.setText("");
+        txt_sdireccion.setText("");
+    }
+
+
 }

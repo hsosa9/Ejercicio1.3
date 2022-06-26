@@ -43,6 +43,7 @@
       android:layout_marginStart="24dp"
       android:layout_marginTop="40dp"
       android:layout_marginEnd="24dp"
+      android:onClick="Actualizar"
       android:text="@string/btn_Actu"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"

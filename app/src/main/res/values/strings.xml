@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Ejercicio 1.3</string>
+    <string name="txt_nom">Nombre</string>
+    <string name="btn_salvar">Salvar</string>
+    <string name="txt_ape">Apellido</string>
+    <string name="txt_edad">Edad</string>
+    <string name="txt_correo">Correo</string>
+    <string name="txt_dire">Direccion</string>
+    <string name="btn_Actu">ACTUALIZAR</string>
+    <string name="btn_Eli">ELIMINAR</string>
+    <string name="txt_Bus">Buscar</string>
+    <string name="txt_id">Buscar Por ID</string>
+    <string name="btn_busc">BUSCAR</string>
+    <string name="btn_">REGRESAR</string>
+    <string name="btn_Siguiente">SIGUIENTE</string>
+
+</resources>
